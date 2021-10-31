@@ -8,6 +8,7 @@ joueurs::joueurs(QWidget *parent) :
     ui(new Ui::joueurs)
 {
     ui->setupUi(this);
+    ui->tab_joueur->setModel(j.afficher());
 }
 
 joueurs::~joueurs()
@@ -19,14 +20,14 @@ joueurs::~joueurs()
 void joueurs::on_pb_ajouter_clicked()
 {
     int id=ui->le_id->text().toInt();
-    int annees=ui->le_annees_naiss->text().toInt();
+    int annees_naissance=ui->le_annees_naiss->text().toInt();
     QString nom=ui->le_nom->text();
     QString prenom=ui->le_prenom->text();
     QString nationalite=ui->le_nationalite->text();
     QString type_sport=ui->le_type_sport->text();
 
 
-Joueurss j (id,annees,nom,prenom,nationalite,type_sport);
+Joueurss j (id,annees_naissance,nom,prenom,nationalite,type_sport);
 bool test=j.ajouter();
 if(test)
   {  QMessageBox::information(nullptr, QObject::tr("ok"),
@@ -48,7 +49,7 @@ void joueurs::on_pb_modifier_clicked()
 
 void joueurs::on_pb_supprimer_clicked()
 {
-int id=ui->le_id->text().toInt();
+int id=ui->le_id_supp->text().toInt();
 bool test=j.supprimer(id);
 if(test)
 {
@@ -67,6 +68,7 @@ if(test)
 
 void joueurs::on_pb_afficher_clicked()
 {
+    ui->tab_joueur->setModel(j.afficher());
 
 }
 

@@ -16,7 +16,7 @@ public:
     ~joueurs();
 
 private slots:
-    //void on_pushButton_clicked();
+
 
     void on_pb_ajouter_clicked();
 

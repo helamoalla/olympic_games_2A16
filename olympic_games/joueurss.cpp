@@ -5,6 +5,7 @@ Joueurss::Joueurss()
 {
 id=0;
 annees_naissance=0;
+
 }
 Joueurss::Joueurss(int id,int annees_naissance,QString nom ,QString prenom,QString nationalite,QString type_sport)
 {
@@ -33,25 +34,41 @@ bool Joueurss::ajouter()
    QSqlQuery query;
    QString id_string=QString::number(id);
     QString annees_string=QString::number(annees_naissance);
-         query.prepare("INSERT INTO joueurss (id, annees_naissance,nom,prenom,nationalité,type_sport) "
-                       "VALUES (:id, :forename, :surname)");
-         query.bindValue(":id", id_string);
-         query.bindValue(":annees", annees_string);
-         query.bindValue(":nom",nom);
-         query.bindValue(":prenom", prenom);
-         query.bindValue(":nationalite", nationalite);
-         query.bindValue(":type",type_sport);
+         query.prepare("INSERT INTO joueurs (id, annees_naissance,nom,prenom,nationalite,type_sport) "
+                       "VALUES (:id, :annees_naissance, :nom, :prenom, :nationalite, :type_sport)");
+         query.bindValue(0, id_string);
+         query.bindValue(1, annees_string);
+         query.bindValue(2,nom);
+         query.bindValue(3, prenom);
+         query.bindValue(4, nationalite);
+         query.bindValue(5,type_sport);
          return  query.exec();
 
 
-   // return test;
+
+}
+QSqlQueryModel * Joueurss::afficher(){
+
+
+
+    QSqlQueryModel *model = new QSqlQueryModel();
+              model->setQuery("SELECT* FROM joueurs");
+              model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+              model->setHeaderData(1, Qt::Horizontal, QObject::tr("annees_naissance"));
+              model->setHeaderData(2, Qt::Horizontal, QObject::tr("nom"));
+              model->setHeaderData(3, Qt::Horizontal, QObject::tr("prenom"));
+              model->setHeaderData(4, Qt::Horizontal, QObject::tr("nationalite"));
+              model->setHeaderData(5, Qt::Horizontal, QObject::tr("type_sport"));
+
+
+        return model;
 
 }
 bool Joueurss::supprimer(int id)
 {
  QSqlQuery query;
  QString res=QString::number(id);
- query.prepare("delete from joueurs where ID= : id");
+ query.prepare("delete from joueurs where id= : id");
  query.bindValue(":id",res);
  return query.exec();
 }

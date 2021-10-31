@@ -20,17 +20,17 @@ SOURCES += \
     joueurs.cpp \
     joueurss.cpp \
     main.cpp \
-    mainwindow.cpp
+
 
 HEADERS += \
     connection.h \
     joueurs.h \
     joueurss.h \
-    mainwindow.h
+
 
 FORMS += \
     joueurs.ui \
-    mainwindow.ui
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

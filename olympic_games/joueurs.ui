@@ -24,10 +24,10 @@ selection-background-color: rgb(255, 255, 255);</string>
   <widget class="QTabWidget" name="impression_badges">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>80</y>
-     <width>501</width>
-     <height>381</height>
+     <x>20</x>
+     <y>10</y>
+     <width>941</width>
+     <height>551</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -195,19 +195,6 @@ background-color: rgb(17, 5, 147);</string>
       <string>modifier</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pb_supprimer">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>150</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>supprimer</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pb_afficher">
      <property name="geometry">
       <rect>
@@ -339,10 +326,10 @@ background-color: rgb(17, 5, 147);</string>
     <widget class="QLabel" name="label_8">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>-5</y>
-       <width>501</width>
-       <height>361</height>
+       <x>10</x>
+       <y>-30</y>
+       <width>941</width>
+       <height>541</height>
       </rect>
      </property>
      <property name="text">
@@ -355,13 +342,114 @@ background-color: rgb(17, 5, 147);</string>
       <bool>true</bool>
      </property>
     </widget>
+    <widget class="QTableView" name="tab_joueur">
+     <property name="geometry">
+      <rect>
+       <x>465</x>
+       <y>31</y>
+       <width>451</width>
+       <height>321</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>790</x>
+       <y>370</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>exporter PDF</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_8">
+     <property name="geometry">
+      <rect>
+       <x>690</x>
+       <y>370</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>calcul score</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="trier_2">
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>381</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="accessibleName">
+      <string/>
+     </property>
+     <item>
+      <property name="text">
+       <string>trier</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>prenom</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>score</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>année de naissance</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QComboBox" name="comboBox_2">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>381</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>rechercher</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>nationalité </string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>type du sport</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>nombre de competition</string>
+      </property>
+     </item>
+    </widget>
     <zorder>label_8</zorder>
     <zorder>label</zorder>
     <zorder>label_2</zorder>
     <zorder>le_id</zorder>
     <zorder>pb_ajouter</zorder>
     <zorder>pb_modifier</zorder>
-    <zorder>pb_supprimer</zorder>
     <zorder>pb_afficher</zorder>
     <zorder>label_3</zorder>
     <zorder>label_4</zorder>
@@ -373,24 +461,44 @@ background-color: rgb(17, 5, 147);</string>
     <zorder>pb_importer</zorder>
     <zorder>label_6</zorder>
     <zorder>le_type_sport</zorder>
+    <zorder>tab_joueur</zorder>
+    <zorder>pushButton_7</zorder>
+    <zorder>pushButton_8</zorder>
+    <zorder>trier_2</zorder>
+    <zorder>comboBox_2</zorder>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>Page</string>
+    </attribute>
+    <widget class="QLineEdit" name="le_id_supp">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>150</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pb_supprimer">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>240</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>supprimer</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
      <string>impression et calcul</string>
     </attribute>
-    <widget class="QFontComboBox" name="trier_2">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>111</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="currentText">
-      <string>trier</string>
-     </property>
-    </widget>
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
       <rect>
@@ -509,8 +617,8 @@ background-color: rgb(17, 5, 147);</string>
     <widget class="QLabel" name="label_9">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>-5</y>
+       <x>10</x>
+       <y>10</y>
        <width>501</width>
        <height>361</height>
       </rect>
@@ -526,7 +634,6 @@ background-color: rgb(17, 5, 147);</string>
      </property>
     </widget>
     <zorder>label_9</zorder>
-    <zorder>trier_2</zorder>
     <zorder>comboBox</zorder>
     <zorder>trier</zorder>
     <zorder>listView</zorder>

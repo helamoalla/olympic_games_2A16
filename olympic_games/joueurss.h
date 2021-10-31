@@ -1,6 +1,7 @@
 #ifndef JOUEURSS_H
 #define JOUEURSS_H
 #include <QString>
+#include <QSqlQueryModel>
 
 
 class Joueurss
@@ -22,7 +23,7 @@ public:
     void settype_sport(QString);
     bool ajouter();
     bool supprimer(int);
-   // QSqlQueryModel *afficher();
+    QSqlQueryModel *afficher();
 private:
     int id,annees_naissance;
     QString nom,prenom,nationalite,type_sport;
