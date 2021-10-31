@@ -35,8 +35,92 @@ selection-background-color: rgb(255, 255, 255);</string>
 </string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>S'authentifier</string>
+    </attribute>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>120</y>
+       <width>141</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_2">
+     <property name="geometry">
+      <rect>
+       <x>232</x>
+       <y>150</y>
+       <width>141</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>180</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>login</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>-5</y>
+       <width>501</width>
+       <height>361</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../v.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>60</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(234, 235, 239);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../ACCOUNT.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>label_7</zorder>
+    <zorder>lineEdit</zorder>
+    <zorder>lineEdit_2</zorder>
+    <zorder>pushButton</zorder>
+    <zorder>label_10</zorder>
+   </widget>
    <widget class="QWidget" name="tab">
     <attribute name="title">
      <string>gestion joueur</string>
@@ -67,7 +151,7 @@ selection-background-color: rgb(255, 255, 255);</string>
       <string>nom</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="le_id">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -77,7 +161,7 @@ selection-background-color: rgb(255, 255, 255);</string>
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="pb_ajouter">
      <property name="geometry">
       <rect>
        <x>340</x>
@@ -95,7 +179,7 @@ background-color: rgb(17, 5, 147);</string>
       <string>ajouter</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="pb_modifier">
      <property name="geometry">
       <rect>
        <x>340</x>
@@ -111,7 +195,7 @@ background-color: rgb(17, 5, 147);</string>
       <string>modifier</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="pb_supprimer">
      <property name="geometry">
       <rect>
        <x>340</x>
@@ -124,7 +208,7 @@ background-color: rgb(17, 5, 147);</string>
       <string>supprimer</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="pb_afficher">
      <property name="geometry">
       <rect>
        <x>340</x>
@@ -163,7 +247,7 @@ background-color: rgb(17, 5, 147);</string>
       <string>année de naissance</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="le_nom">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -173,7 +257,7 @@ background-color: rgb(17, 5, 147);</string>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="le_prenom">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -183,7 +267,7 @@ background-color: rgb(17, 5, 147);</string>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="le_annees_naiss">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -206,7 +290,7 @@ background-color: rgb(17, 5, 147);</string>
       <string>nationalité</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_5">
+    <widget class="QLineEdit" name="le_nationalite">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -216,7 +300,7 @@ background-color: rgb(17, 5, 147);</string>
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_7">
+    <widget class="QPushButton" name="pb_importer">
      <property name="geometry">
       <rect>
        <x>340</x>
@@ -242,7 +326,7 @@ background-color: rgb(17, 5, 147);</string>
       <string>type du sport</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_6">
+    <widget class="QLineEdit" name="le_type_sport">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -252,6 +336,43 @@ background-color: rgb(17, 5, 147);</string>
       </rect>
      </property>
     </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>-5</y>
+       <width>501</width>
+       <height>361</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../bb.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>label_8</zorder>
+    <zorder>label</zorder>
+    <zorder>label_2</zorder>
+    <zorder>le_id</zorder>
+    <zorder>pb_ajouter</zorder>
+    <zorder>pb_modifier</zorder>
+    <zorder>pb_supprimer</zorder>
+    <zorder>pb_afficher</zorder>
+    <zorder>label_3</zorder>
+    <zorder>label_4</zorder>
+    <zorder>le_nom</zorder>
+    <zorder>le_prenom</zorder>
+    <zorder>le_annees_naiss</zorder>
+    <zorder>label_5</zorder>
+    <zorder>le_nationalite</zorder>
+    <zorder>pb_importer</zorder>
+    <zorder>label_6</zorder>
+    <zorder>le_type_sport</zorder>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
@@ -356,7 +477,7 @@ background-color: rgb(17, 5, 147);</string>
       </rect>
      </property>
      <property name="text">
-      <string>imprimer</string>
+      <string>exporter PDF</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_6">
@@ -385,6 +506,33 @@ background-color: rgb(17, 5, 147);</string>
       <enum>Qt::Vertical</enum>
      </property>
     </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>-5</y>
+       <width>501</width>
+       <height>361</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../bb.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <zorder>label_9</zorder>
+    <zorder>trier_2</zorder>
+    <zorder>comboBox</zorder>
+    <zorder>trier</zorder>
+    <zorder>listView</zorder>
+    <zorder>pushButton_5</zorder>
+    <zorder>pushButton_6</zorder>
+    <zorder>verticalScrollBar</zorder>
    </widget>
   </widget>
  </widget>
