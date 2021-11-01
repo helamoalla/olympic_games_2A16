@@ -20,7 +20,7 @@ public:
        QSqlQueryModel* afficher();
          bool supprimer(int);
 private :
-    int Num , duree ;
+    int num , duree ;
     QString horaire,type ;
 
 

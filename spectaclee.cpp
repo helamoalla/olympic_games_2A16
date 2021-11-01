@@ -4,20 +4,20 @@
 #include<QtDebug>
 Spectaclee::Spectaclee()
 {
-Num=0; duree=0;horaire="";type="";
+num=0; duree=0;horaire="";type="";
 
 }
 
-Spectaclee::Spectaclee(int Num,int duree,QString horaire,QString type){
-   this->Num=Num;
+Spectaclee::Spectaclee(int num,int duree,QString horaire,QString type){
+   this->num=num;
    this->duree=duree;
    this->horaire=horaire;
    this->type=type;}
-int Spectaclee::getNum(){return Num;}
+int Spectaclee::getNum(){return num;}
 int Spectaclee::getduree(){return duree;}
 QString Spectaclee::gethoraire(){return horaire;}
 QString Spectaclee::gettype(){return type;}
-  void Spectaclee::setNum(int Num){this->Num=Num;}
+  void Spectaclee::setNum(int num){this->num=num;}
   void Spectaclee::setduree(int duree){this->duree=duree;}
   void Spectaclee::sethoraire(QString horaire){this->horaire=horaire;}
   void Spectaclee::settype(QString type){this->type=type;}
@@ -25,7 +25,7 @@ QString Spectaclee::gettype(){return type;}
   {
 
       QSqlQuery query;
-     QString num_string= QString::number(Num);
+     QString num_string= QString::number(num);
      QString duree_string= QString::number(duree);
             query.prepare("INSERT INTO SPECTACLE (num, duree, horaire , type) "
                           "VALUES (:num, :duree, :horaire ,:type)");
@@ -43,7 +43,7 @@ QString Spectaclee::gettype(){return type;}
 
       QSqlQueryModel *model = new QSqlQueryModel();
             model->setQuery("SELECT* FROM SPECTACLE");
-            model->setHeaderData(0, Qt::Horizontal, QObject::tr("Num"));
+            model->setHeaderData(0, Qt::Horizontal, QObject::tr("num"));
             model->setHeaderData(1, Qt::Horizontal, QObject::tr("duree"));
             model->setHeaderData(2, Qt::Horizontal, QObject::tr("horaire"));
             model->setHeaderData(3, Qt::Horizontal, QObject::tr("type"));
@@ -51,15 +51,15 @@ QString Spectaclee::gettype(){return type;}
 
       return model;
   }
-  bool Spectaclee::supprimer(int id){
+  bool Spectaclee::supprimer(int num){
         QSqlQuery query;
-        QString res=QString::number(id);
+        QString res=QString::number(num);
 
 
 
 
-      query.prepare("Delete from Fournisseur where id=:id");
-      query.bindValue(":id", res);
+      query.prepare("Delete from SPECTACLE where num=:num");
+      query.bindValue(":num", res);
 
       return  query.exec();
 

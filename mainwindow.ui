@@ -190,11 +190,11 @@ background-color: rgb(237, 238, 240);</string>
        <string>Ajouter</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="pb_supp">
       <property name="geometry">
        <rect>
-        <x>340</x>
-        <y>50</y>
+        <x>320</x>
+        <y>30</y>
         <width>81</width>
         <height>23</height>
        </rect>
@@ -414,10 +414,20 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
        </rect>
       </property>
      </widget>
+     <widget class="QLineEdit" name="num_supp">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>30</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
      <zorder>label_10</zorder>
      <zorder>label</zorder>
      <zorder>qb_ajouter</zorder>
-     <zorder>pushButton_2</zorder>
+     <zorder>pb_supp</zorder>
      <zorder>fontComboBox</zorder>
      <zorder>label_2</zorder>
      <zorder>spinBox</zorder>
@@ -431,6 +441,7 @@ font: 8pt &quot;MS Shell Dlg 2&quot;;</string>
      <zorder>label_4</zorder>
      <zorder>le_type</zorder>
      <zorder>tab_spec</zorder>
+     <zorder>num_supp</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">

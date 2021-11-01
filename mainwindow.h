@@ -19,6 +19,9 @@ public:
 private slots:
     void on_qb_ajouter_clicked();
 
+
+    void on_pb_supp_clicked();
+
 private:
     Ui::MainWindow *ui;
     Spectaclee s;

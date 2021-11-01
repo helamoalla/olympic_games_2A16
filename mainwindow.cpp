@@ -36,3 +36,23 @@ void MainWindow::on_qb_ajouter_clicked()
 
     }
 
+
+
+
+void MainWindow::on_pb_supp_clicked()
+{
+    int num =ui->num_supp->text().toInt();
+        bool test=s.supprimer(num);
+
+        if(test)
+            QMessageBox::information(nullptr, QObject::tr("ok"),
+                        QObject::tr("supression effectué .\n"
+                                    "Click Ok to exit."), QMessageBox::Ok);
+        else
+            QMessageBox::critical(nullptr, QObject::tr("not ok"),
+                        QObject::tr("échec suprresion.\n"
+                                    "Click cancel to exit."), QMessageBox::Cancel);
+        ui->tab_spec->setModel(s.afficher());
+
+
+}

@@ -19,18 +19,15 @@ SOURCES += \
     connection.cpp \
     main.cpp \
     mainwindow.cpp \
-    spectacle.cpp \
     spectaclee.cpp
 
 HEADERS += \
     connection.h \
     mainwindow.h \
-    spectacle.h \
     spectaclee.h
 
 FORMS += \
-    mainwindow.ui \
-    spectacle.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
