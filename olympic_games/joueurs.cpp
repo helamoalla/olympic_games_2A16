@@ -49,7 +49,7 @@ void joueurs::on_pb_modifier_clicked()
 
 void joueurs::on_pb_supprimer_clicked()
 {
-int id=ui->le_id_supp->text().toInt();
+int id=ui->le_id->text().toInt();
 bool test=j.supprimer(id);
 if(test)
 {

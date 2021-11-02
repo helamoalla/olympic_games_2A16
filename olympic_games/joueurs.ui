@@ -444,6 +444,19 @@ background-color: rgb(17, 5, 147);</string>
       </property>
      </item>
     </widget>
+    <widget class="QPushButton" name="pb_supprimer">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>150</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>supprimer</string>
+     </property>
+    </widget>
     <zorder>label_8</zorder>
     <zorder>label</zorder>
     <zorder>label_2</zorder>
@@ -466,180 +479,7 @@ background-color: rgb(17, 5, 147);</string>
     <zorder>pushButton_8</zorder>
     <zorder>trier_2</zorder>
     <zorder>comboBox_2</zorder>
-   </widget>
-   <widget class="QWidget" name="tab_4">
-    <attribute name="title">
-     <string>Page</string>
-    </attribute>
-    <widget class="QLineEdit" name="le_id_supp">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>150</y>
-       <width>113</width>
-       <height>22</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pb_supprimer">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>240</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>supprimer</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="tab_2">
-    <attribute name="title">
-     <string>impression et calcul</string>
-    </attribute>
-    <widget class="QComboBox" name="comboBox">
-     <property name="geometry">
-      <rect>
-       <x>260</x>
-       <y>30</y>
-       <width>73</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <item>
-      <property name="text">
-       <string>rechercher</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>nationalité </string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>type du sport</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>nombre de competition</string>
-      </property>
-     </item>
-    </widget>
-    <widget class="QComboBox" name="trier">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>30</y>
-       <width>73</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="statusTip">
-      <string/>
-     </property>
-     <property name="accessibleName">
-      <string/>
-     </property>
-     <item>
-      <property name="text">
-       <string>trier</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>prenom</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>score</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>année de naissance</string>
-      </property>
-     </item>
-    </widget>
-    <widget class="QListView" name="listView">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>90</y>
-       <width>291</width>
-       <height>241</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_5">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>250</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>exporter PDF</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_6">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>300</y>
-       <width>93</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>calcul score</string>
-     </property>
-    </widget>
-    <widget class="QScrollBar" name="verticalScrollBar">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>100</y>
-       <width>16</width>
-       <height>221</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_9">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>501</width>
-       <height>361</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../bb.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <zorder>label_9</zorder>
-    <zorder>comboBox</zorder>
-    <zorder>trier</zorder>
-    <zorder>listView</zorder>
-    <zorder>pushButton_5</zorder>
-    <zorder>pushButton_6</zorder>
-    <zorder>verticalScrollBar</zorder>
+    <zorder>pb_supprimer</zorder>
    </widget>
   </widget>
  </widget>
