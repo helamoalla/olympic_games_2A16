@@ -2,6 +2,7 @@
 #define JOUEURSS_H
 #include <QString>
 #include <QSqlQueryModel>
+#include <QTableView>
 
 
 class Joueurss
@@ -24,6 +25,10 @@ public:
     bool ajouter();
     bool supprimer(int);
     QSqlQueryModel *afficher();
+    bool modifier(int,int,QString,QString,QString,QString);
+    QSqlQueryModel * trierprenom();
+    QSqlQueryModel * trierannees();
+    void recherche(QTableView * table, QString,int,QString);
 private:
     int id,annees_naissance;
     QString nom,prenom,nationalite,type_sport;

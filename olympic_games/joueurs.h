@@ -13,6 +13,7 @@ class joueurs : public QDialog
 
 public:
     explicit joueurs(QWidget *parent = nullptr);
+
     ~joueurs();
 
 private slots:
@@ -27,6 +28,16 @@ private slots:
     void on_pb_afficher_clicked();
 
     void on_pb_importer_clicked();
+
+
+    void on_comboBox_2_activated(const QString &arg1);
+
+
+    void on_trier_prenom_clicked();
+
+    void on_trier_annees_clicked();
+
+    void on_lineEdit_3_textChanged(const QString &arg1);
 
 private:
     Ui::joueurs *ui;

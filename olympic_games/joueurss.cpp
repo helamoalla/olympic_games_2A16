@@ -1,6 +1,8 @@
 #include "joueurss.h"
 #include <QSqlQuery>
 #include <QtDebug>
+#include<QObject>
+#include<joueurs.h>
 Joueurss::Joueurss()
 {
 id=0;
@@ -64,11 +66,62 @@ QSqlQueryModel * Joueurss::afficher(){
         return model;
 
 }
-bool Joueurss::supprimer(int id)
+bool Joueurss::supprimer(int id2)
 {
  QSqlQuery query;
- QString res=QString::number(id);
- query.prepare("delete from joueurs where id= : id");
+ QString res=QString::number(id2);
+ query.prepare("delete from joueurs where id= :id");
  query.bindValue(":id",res);
  return query.exec();
+}
+bool Joueurss::modifier(int id,int annees_naissance,QString nom,QString prenom,QString nationalite,QString type_sport)
+{
+    QSqlQuery query;
+
+         QString id_string=QString::number(id);
+         QString annees_string= QString::number(annees_naissance);
+           query.prepare(" UPDATE joueurs set id=:id ,annees_naissance=:annees_naissance,nom=:nom,prenom=:prenom, nationalite=:nationalite,type_sport=:type_sport  where id=:id");
+           query.bindValue(":id",id_string);
+           query.bindValue(":annees_naissance",annees_string);
+           query.bindValue(":nom",nom);
+           query.bindValue(":prenom",prenom);
+           query.bindValue(":nationalite",nationalite);
+           query.bindValue(":type_sport",type_sport);
+
+           return query.exec();
+}
+QSqlQueryModel * Joueurss::trierprenom()
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("SELECT * FROM joueurs ORDER BY prenom");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("id"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("annees_naissance"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("nom"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("prenom"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("nationalite"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("type_sport"));
+    return model;
+}
+QSqlQueryModel * Joueurss::trierannees()
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("SELECT * FROM joueurs ORDER BY annees_naissance");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("id"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("annees_naissance"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("nom"));
+    model->setHeaderData(3,Qt::Horizontal,QObject::tr("prenom"));
+    model->setHeaderData(4,Qt::Horizontal,QObject::tr("nationalite"));
+    model->setHeaderData(5,Qt::Horizontal,QObject::tr("type_sport"));
+    return model;
+}
+void Joueurss::recherche(QTableView * table, QString nationalite,int annees,QString type_sport)
+{
+    QSqlQueryModel *model= new QSqlQueryModel();
+        QString annees_string=QString::number(annees);
+        QSqlQuery *query=new QSqlQuery;
+        query->prepare("select * from joueurs where nationalite like '%"+nationalite+"%' or TYPE_SPORT like '%"+type_sport+"%' or annees_naissance like '%"+annees_string+"%' ;");
+        query->exec();
+        model->setQuery(*query);
+        table->setModel(model);
+        table->show();
 }

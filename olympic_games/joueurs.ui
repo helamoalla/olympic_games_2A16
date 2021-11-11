@@ -171,9 +171,7 @@ selection-background-color: rgb(255, 255, 255);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">alternate-background-color: rgb(32, 11, 148);
-selection-background-color: rgb(35, 5, 132);
-background-color: rgb(17, 5, 147);</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>ajouter</string>
@@ -189,7 +187,7 @@ background-color: rgb(17, 5, 147);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(15, 59, 255);</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>modifier</string>
@@ -345,8 +343,8 @@ background-color: rgb(17, 5, 147);</string>
     <widget class="QTableView" name="tab_joueur">
      <property name="geometry">
       <rect>
-       <x>465</x>
-       <y>31</y>
+       <x>480</x>
+       <y>70</y>
        <width>451</width>
        <height>321</height>
       </rect>
@@ -355,8 +353,8 @@ background-color: rgb(17, 5, 147);</string>
     <widget class="QPushButton" name="pushButton_7">
      <property name="geometry">
       <rect>
-       <x>790</x>
-       <y>370</y>
+       <x>720</x>
+       <y>420</y>
        <width>91</width>
        <height>41</height>
       </rect>
@@ -368,8 +366,8 @@ background-color: rgb(17, 5, 147);</string>
     <widget class="QPushButton" name="pushButton_8">
      <property name="geometry">
       <rect>
-       <x>690</x>
-       <y>370</y>
+       <x>610</x>
+       <y>420</y>
        <width>91</width>
        <height>41</height>
       </rect>
@@ -378,71 +376,15 @@ background-color: rgb(17, 5, 147);</string>
       <string>calcul score</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="trier_2">
-     <property name="geometry">
-      <rect>
-       <x>490</x>
-       <y>381</y>
-       <width>91</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="statusTip">
-      <string/>
-     </property>
-     <property name="accessibleName">
-      <string/>
-     </property>
-     <item>
-      <property name="text">
-       <string>trier</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>prenom</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>score</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>année de naissance</string>
-      </property>
-     </item>
-    </widget>
     <widget class="QComboBox" name="comboBox_2">
      <property name="geometry">
       <rect>
-       <x>600</x>
-       <y>381</y>
+       <x>350</x>
+       <y>71</y>
        <width>81</width>
-       <height>31</height>
+       <height>20</height>
       </rect>
      </property>
-     <item>
-      <property name="text">
-       <string>rechercher</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>nationalité </string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>type du sport</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>nombre de competition</string>
-      </property>
-     </item>
     </widget>
     <widget class="QPushButton" name="pb_supprimer">
      <property name="geometry">
@@ -455,6 +397,58 @@ background-color: rgb(17, 5, 147);</string>
      </property>
      <property name="text">
       <string>supprimer</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="trier_prenom">
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>20</y>
+       <width>101</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>trier prenom</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="trier_annees">
+     <property name="geometry">
+      <rect>
+       <x>620</x>
+       <y>20</y>
+       <width>161</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>trier annees naissance</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="radioButton_3">
+     <property name="geometry">
+      <rect>
+       <x>800</x>
+       <y>20</y>
+       <width>97</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>trier score </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_3">
+     <property name="geometry">
+      <rect>
+       <x>810</x>
+       <y>50</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
     <zorder>label_8</zorder>
@@ -477,9 +471,12 @@ background-color: rgb(17, 5, 147);</string>
     <zorder>tab_joueur</zorder>
     <zorder>pushButton_7</zorder>
     <zorder>pushButton_8</zorder>
-    <zorder>trier_2</zorder>
     <zorder>comboBox_2</zorder>
     <zorder>pb_supprimer</zorder>
+    <zorder>trier_prenom</zorder>
+    <zorder>trier_annees</zorder>
+    <zorder>radioButton_3</zorder>
+    <zorder>lineEdit_3</zorder>
    </widget>
   </widget>
  </widget>
