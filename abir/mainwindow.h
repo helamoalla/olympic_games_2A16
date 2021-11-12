@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "Competitions.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -15,7 +15,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private:
+
+private slots:
+    //void on_pb_ajouter_clicked();
+
+   // void on_pb_supprimer_clicked();
+
+private :
     Ui::MainWindow *ui;
 };
 #endif // MAINWINDOW_H

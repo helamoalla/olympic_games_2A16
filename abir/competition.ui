@@ -16,10 +16,10 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>150</y>
-     <width>581</width>
-     <height>391</height>
+     <x>120</x>
+     <y>80</y>
+     <width>651</width>
+     <height>461</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -32,7 +32,7 @@
     <attribute name="title">
      <string>gestion du competition</string>
     </attribute>
-    <widget class="QPushButton" name="pushButton_5">
+    <widget class="QPushButton" name="pb_ajouter">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -45,7 +45,7 @@
       <string>ajouter</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_6">
+    <widget class="QPushButton" name="pb_modifier">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -58,7 +58,7 @@
       <string>modifier</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_7">
+    <widget class="QPushButton" name="pb_supprimer">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -71,7 +71,7 @@
       <string>supprimer</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_8">
+    <widget class="QPushButton" name="pb_afficher">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -110,7 +110,7 @@
       <string>equipe2</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="le_equipe1">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -120,12 +120,78 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="le_equipe2">
      <property name="geometry">
       <rect>
        <x>180</x>
        <y>170</y>
        <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="le_numero_2">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>40</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>numero</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="le_numero">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>70</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="le_ref">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>70</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>40</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>reference</string>
+     </property>
+    </widget>
+    <widget class="QTableView" name="tabCompetition">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>220</y>
+       <width>256</width>
+       <height>192</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>50</y>
+       <width>73</width>
        <height>22</height>
       </rect>
      </property>
