@@ -39,6 +39,8 @@ private slots:
 
     void on_lineEdit_3_textChanged(const QString &arg1);
 
+    void on_export_pdf_clicked();
+
 private:
     Ui::joueurs *ui;
     Joueurss j;

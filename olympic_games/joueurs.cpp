@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QSqlQuery>
+
 joueurs::joueurs(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::joueurs)
@@ -141,12 +142,22 @@ ui->tab_joueur->setModel(j.trierannees());
 void joueurs::on_lineEdit_3_textChanged(const QString &arg1)   ///mtaa el recherche
 {
    Joueurss j;
-        QString nationalite = ui->lineEdit_3->text();
-        int annees= ui->lineEdit_3->text().toInt();
-        QString type_sport = ui->lineEdit_3->text();
-        j.recherche(ui->tab_joueur,nationalite,annees,type_sport);
+//        QString nationalite = ui->lineEdit_3->text();
+//        int annees= ui->lineEdit_3->text().toInt();
+//        QString type_sport = ui->lineEdit_3->text();
+    QString rech = ui->lineEdit_3->text();
+        j.recherche(ui->tab_joueur,rech);
         if (ui->lineEdit_3->text().isEmpty())
         {
             ui->tab_joueur->setModel(j.afficher());
         }
+}
+
+void joueurs::on_export_pdf_clicked()
+{
+    j.telechargerPDF();
+
+     QMessageBox::information(nullptr,QObject::tr("OK"),
+                QObject::tr("Téléchargement terminé"), QMessageBox::Cancel);
+
 }

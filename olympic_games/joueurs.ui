@@ -350,7 +350,7 @@ selection-background-color: rgb(255, 255, 255);</string>
       </rect>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_7">
+    <widget class="QPushButton" name="export_pdf">
      <property name="geometry">
       <rect>
        <x>720</x>
@@ -469,7 +469,7 @@ selection-background-color: rgb(255, 255, 255);</string>
     <zorder>label_6</zorder>
     <zorder>le_type_sport</zorder>
     <zorder>tab_joueur</zorder>
-    <zorder>pushButton_7</zorder>
+    <zorder>export_pdf</zorder>
     <zorder>pushButton_8</zorder>
     <zorder>comboBox_2</zorder>
     <zorder>pb_supprimer</zorder>

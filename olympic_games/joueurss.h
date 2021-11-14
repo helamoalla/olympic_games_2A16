@@ -3,7 +3,8 @@
 #include <QString>
 #include <QSqlQueryModel>
 #include <QTableView>
-
+#include <QPdfWriter>
+#include <QPainter>
 
 class Joueurss
 {
@@ -28,7 +29,8 @@ public:
     bool modifier(int,int,QString,QString,QString,QString);
     QSqlQueryModel * trierprenom();
     QSqlQueryModel * trierannees();
-    void recherche(QTableView * table, QString,int,QString);
+    void recherche(QTableView * table, QString);
+    void telechargerPDF();
 private:
     int id,annees_naissance;
     QString nom,prenom,nationalite,type_sport;

@@ -3,6 +3,12 @@
 #include <QtDebug>
 #include<QObject>
 #include<joueurs.h>
+//#include <QIntValidator>
+//#include <QSystemTrayIcon>
+#include <QPrinter>
+#include <QPrintDialog>
+#include <QSqlTableModel>
+#include <QPagedPaintDevice>
 Joueurss::Joueurss()
 {
 id=0;
@@ -114,14 +120,50 @@ QSqlQueryModel * Joueurss::trierannees()
     model->setHeaderData(5,Qt::Horizontal,QObject::tr("type_sport"));
     return model;
 }
-void Joueurss::recherche(QTableView * table, QString nationalite,int annees,QString type_sport)
+void Joueurss::recherche(QTableView * table, QString rech)
 {
     QSqlQueryModel *model= new QSqlQueryModel();
-        QString annees_string=QString::number(annees);
+        //QString annees_string=QString::number(annees);
         QSqlQuery *query=new QSqlQuery;
-        query->prepare("select * from joueurs where nationalite like '%"+nationalite+"%' or TYPE_SPORT like '%"+type_sport+"%' or annees_naissance like '%"+annees_string+"%' ;");
+        query->prepare("select * from joueurs where nationalite like '%"+rech+"%' or TYPE_SPORT like '%"+rech+"%' or annees_naissance like '%"+rech+"%' ;");
         query->exec();
         model->setQuery(*query);
         table->setModel(model);
         table->show();
 }
+void  Joueurss::telechargerPDF(){
+
+
+                     QPdfWriter pdf("C:\\Users\\helam\\OneDrive\\Bureau\\export_pdf\\export_pdf.pdf");
+                     QPainter painter(&pdf);
+                    int i = 4000;
+                         painter.setPen(Qt::blue);
+                         painter.setFont(QFont("Arial", 30));
+                         painter.drawText(1100,1200,"LISTES DES JOUEURS");
+                         painter.setPen(Qt::black);
+                         painter.setFont(QFont("Arial",14));
+                         painter.drawRect(100,100,7300,2600);
+                         painter.drawRect(0,3000,9600,500);
+                         painter.setFont(QFont("Arial",11));
+                         painter.drawText(200,3300,"ID");
+                         painter.drawText(1300,3300,"NOM");
+                         painter.drawText(2200,3300,"PRENOM");
+                         painter.drawText(3200,3300,"ANNEES_NAISSANCE");
+                         painter.drawText(5300,3300,"NATIONALITE");
+                         painter.drawText(6700,3300,"TYPE_SPORT");
+
+                         QSqlQuery query;
+                         query.prepare("select * from joueurs");
+                         query.exec();
+                         while (query.next())
+                         {
+                             painter.drawText(200,i,query.value(0).toString());
+                             painter.drawText(1300,i,query.value(2).toString());
+                             painter.drawText(2200,i,query.value(3).toString());
+                             painter.drawText(3200,i,query.value(1).toString());
+                             painter.drawText(5300,i,query.value(4).toString());
+                             painter.drawText(6700,i,query.value(5).toString());
+
+
+                            i = i + 500;
+                         }}
