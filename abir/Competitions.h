@@ -1,8 +1,8 @@
 #ifndef COMPETITIONS_H
 #define COMPETITIONS_H
 # include <QString>
-#include <QSqlQueryModel>
-
+#include <QSqlQueryModel> //adapter pour enregistrer  le resultat d'une enquete select dans un tableau
+#include <QTableView>
 class Competitions
 {
 public:
@@ -24,6 +24,10 @@ public:
        QSqlQueryModel* afficher();
        bool supprimer(int);
        bool modifier(int,QString,QString);
+       QSqlQueryModel * trierTemps();
+       QSqlQueryModel * trier_score();
+       QSqlQueryModel * trier_equipe();
+       void recherche(QTableView * table,int);
 private:
     int numero;
     QString equipe1, equipe2;

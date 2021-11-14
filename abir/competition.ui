@@ -16,10 +16,10 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>50</x>
      <y>80</y>
-     <width>651</width>
-     <height>461</height>
+     <width>1041</width>
+     <height>491</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -189,9 +189,68 @@
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
       <rect>
-       <x>450</x>
-       <y>50</y>
+       <x>380</x>
+       <y>90</y>
        <width>73</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="trierTemps">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>70</y>
+       <width>97</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>trier temps</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="trier_score">
+     <property name="geometry">
+      <rect>
+       <x>710</x>
+       <y>70</y>
+       <width>131</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>trier selon score</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="trier_equipe">
+     <property name="geometry">
+      <rect>
+       <x>860</x>
+       <y>70</y>
+       <width>151</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>trier selon equipe</string>
+     </property>
+    </widget>
+    <widget class="QTableView" name="tableView">
+     <property name="geometry">
+      <rect>
+       <x>670</x>
+       <y>170</y>
+       <width>331</width>
+       <height>241</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>890</x>
+       <y>150</y>
+       <width>113</width>
        <height>22</height>
       </rect>
      </property>

@@ -3,14 +3,13 @@
 #include <Competitions.h>
 #include <QDialog>
 
-namespace Ui {
+namespace Ui { //permet de regrouper nos venetres generé dans un espace de nom
 class competition;
 }
 
 class competition : public QDialog
 {
     Q_OBJECT
-
 public:
     explicit competition(QWidget *parent = nullptr);
     ~competition();
@@ -26,6 +25,15 @@ private slots:
 
 
     void on_comboBox_activated(const QString &arg1);
+
+    void on_trierTemps_clicked();
+
+
+    void on_trier_score_clicked();
+
+    void on_trier_equipe_clicked();
+
+    void on_lineEdit_textChanged(const QString &arg1);
 
 private:
     Ui::competition *ui;

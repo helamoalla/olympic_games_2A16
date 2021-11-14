@@ -2,7 +2,7 @@
 #include "ui_competition.h"
 #include"competition.h"
 #include"Competitions.h"
-#include <QMessageBox>
+#include <QMessageBox> // fournit une boîte de dialogue modale pour informer l'utilisateur ou lui poser une question et recevoir une réponse
 #include "QSqlQuery"
 competition::competition(QWidget *parent) :
     QDialog(parent),
@@ -11,6 +11,7 @@ competition::competition(QWidget *parent) :
     ui->setupUi(this);
     ui->comboBox->setModel(c.afficher());
     ui->tabCompetition->setModel(c.afficher());
+
 }
 
 competition::~competition()
@@ -23,12 +24,12 @@ void competition::on_pb_ajouter_clicked()
    // QString equipe1=ui->le_equipe1->text();
     //QString equipe2=ui->le_equipe2->text();
 
-    int numero=ui->le_numero->text().toInt();
+    int numero=ui->le_numero->text().toInt(); //convertir le numero en int
 
-        QString equipe1=ui->le_equipe1->text();
+        QString equipe1=ui->le_equipe1->text(); //convertir le QString en int
         QString equipe2=ui->le_equipe2->text();
 
-       Competitions c(numero,equipe1,equipe2);
+       Competitions w(numero,equipe1,equipe2);
        bool test=c.ajouter();
        QMessageBox msgBox;
        if(test)
@@ -51,7 +52,7 @@ void competition::on_pb_modifier_clicked()
            QString equipe2= ui->le_equipe2->text();
 
 
-         Competitions c(numero,equipe1,equipe2);
+         Competitions w(numero,equipe1,equipe2);
 
 
          bool test=c.modifier(numero,equipe1,equipe2);
@@ -87,6 +88,8 @@ void competition::on_pb_supprimer_clicked()
 void competition::on_pb_afficher_clicked()
 {
 
+    ui->tabCompetition->setModel(c.afficher());
+
 }
 
 
@@ -104,13 +107,42 @@ void competition::on_comboBox_activated(const QString &arg1)
                     while(query.next())
                     {
                         ui->le_numero->setText(query.value(1).toString());
-                   ui->le_equipe1->setText(query.value(0).toString());
+                        ui->le_equipe1->setText(query.value(0).toString());
 
-                    ui->le_equipe2->setText(query.value(2).toString());
+                        ui->le_equipe2->setText(query.value(2).toString());
 
     }}
                 else
                     QMessageBox::critical(nullptr, QObject::tr(" echoué"),
                                 QObject::tr("Erreur !.\n"
                                             "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void competition::on_trierTemps_clicked()
+{
+   ui->tabCompetition->setModel(c.trierTemps());
+}
+
+void competition::on_trier_score_clicked()
+{
+    ui->tabCompetition->setModel(c.trier_score());
+}
+
+void competition::on_trier_equipe_clicked()
+{
+    ui->tabCompetition->setModel(c.trier_equipe());
+}
+
+void competition::on_lineEdit_textChanged(const QString &arg1)
+{
+    Competitions c;
+           int numero = ui->lineEdit->text().toInt();
+            //int score = ui->lineEdit_3->text().toInt();
+
+            c.recherche(ui->tabCompetition,numero);
+            if (ui->lineEdit->text().isEmpty())
+            {
+                ui->tabCompetition->setModel(c.afficher());
+            }
+
 }

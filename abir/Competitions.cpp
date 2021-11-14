@@ -74,3 +74,48 @@ bool Competitions::modifier(int numero,QString equipe1,QString equipe2)
        return query.exec();
 }
 
+QSqlQueryModel * Competitions::trierTemps()
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("SELECT * FROM Competitions ORDER BY prenom");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("numero"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("equipe1"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("equipe2"));
+
+
+    return model;
+}
+QSqlQueryModel * Competitions::trier_score()
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("SELECT * FROM Competitions ORDER BY prenom");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("numero"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("equipe1"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("equipe2"));
+
+
+    return model;
+}
+QSqlQueryModel * Competitions::trier_equipe()
+{
+    QSqlQueryModel * model=new QSqlQueryModel();
+    model->setQuery("SELECT * FROM Competitions ORDER BY prenom");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("numero"));
+    model->setHeaderData(1,Qt::Horizontal,QObject::tr("equipe1"));
+    model->setHeaderData(2,Qt::Horizontal,QObject::tr("equipe2"));
+
+
+    return model;
+}
+
+void Competitions::recherche(QTableView * table, int numero)
+{
+    QSqlQueryModel *model= new QSqlQueryModel();
+        QString numero_string=QString::number(numero);
+        QSqlQuery *query=new QSqlQuery;
+        query->prepare("select * from Competitions where numero like '%"+numero_string+"%';");
+        query->exec();
+        model->setQuery(*query);
+        table->setModel(model);
+        table->show();
+}

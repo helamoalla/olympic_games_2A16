@@ -9,10 +9,10 @@ QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+    Q_OBJECT //déclare ses propres signaux et slots
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr); //fonction qui sert a fixer l'interface ghraphique loul
     ~MainWindow();
 
 
@@ -22,6 +22,6 @@ private slots:
    // void on_pb_supprimer_clicked();
 
 private :
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui; //pointeur sur l'interface graphique
 };
 #endif // MAINWINDOW_H
