@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include"stat.h"
 #include "Competitions.h"
 #include <QMessageBox>
 #include <QIntValidator>

@@ -16,10 +16,10 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>80</y>
-     <width>1041</width>
-     <height>491</height>
+     <x>40</x>
+     <y>0</y>
+     <width>1101</width>
+     <height>591</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -35,8 +35,8 @@
     <widget class="QPushButton" name="pb_ajouter">
      <property name="geometry">
       <rect>
-       <x>320</x>
-       <y>140</y>
+       <x>300</x>
+       <y>40</y>
        <width>191</width>
        <height>28</height>
       </rect>
@@ -48,8 +48,8 @@
     <widget class="QPushButton" name="pb_modifier">
      <property name="geometry">
       <rect>
-       <x>320</x>
-       <y>200</y>
+       <x>300</x>
+       <y>80</y>
        <width>191</width>
        <height>28</height>
       </rect>
@@ -61,8 +61,8 @@
     <widget class="QPushButton" name="pb_supprimer">
      <property name="geometry">
       <rect>
-       <x>320</x>
-       <y>250</y>
+       <x>300</x>
+       <y>120</y>
        <width>191</width>
        <height>28</height>
       </rect>
@@ -74,8 +74,8 @@
     <widget class="QPushButton" name="pb_afficher">
      <property name="geometry">
       <rect>
-       <x>320</x>
-       <y>310</y>
+       <x>300</x>
+       <y>160</y>
        <width>191</width>
        <height>28</height>
       </rect>
@@ -88,7 +88,7 @@
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>130</y>
+       <y>80</y>
        <width>56</width>
        <height>16</height>
       </rect>
@@ -100,8 +100,8 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>130</y>
+       <x>60</x>
+       <y>120</y>
        <width>56</width>
        <height>16</height>
       </rect>
@@ -113,8 +113,8 @@
     <widget class="QLineEdit" name="le_equipe1">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>170</y>
+       <x>150</x>
+       <y>80</y>
        <width>113</width>
        <height>22</height>
       </rect>
@@ -123,8 +123,8 @@
     <widget class="QLineEdit" name="le_equipe2">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>170</y>
+       <x>150</x>
+       <y>120</y>
        <width>113</width>
        <height>22</height>
       </rect>
@@ -146,18 +146,18 @@
     <widget class="QLineEdit" name="le_numero">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>70</y>
+       <x>150</x>
+       <y>40</y>
        <width>113</width>
        <height>22</height>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="le_ref">
+    <widget class="QLineEdit" name="le_reference">
      <property name="geometry">
       <rect>
-       <x>190</x>
-       <y>70</y>
+       <x>150</x>
+       <y>160</y>
        <width>113</width>
        <height>22</height>
       </rect>
@@ -166,8 +166,8 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>200</x>
-       <y>40</y>
+       <x>60</x>
+       <y>160</y>
        <width>56</width>
        <height>16</height>
       </rect>
@@ -179,18 +179,18 @@
     <widget class="QTableView" name="tabCompetition">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>220</y>
-       <width>256</width>
-       <height>192</height>
+       <x>20</x>
+       <y>351</y>
+       <width>711</width>
+       <height>211</height>
       </rect>
      </property>
     </widget>
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>90</y>
+       <x>660</x>
+       <y>330</y>
        <width>73</width>
        <height>22</height>
       </rect>
@@ -235,24 +235,181 @@
       <string>trier selon equipe</string>
      </property>
     </widget>
-    <widget class="QTableView" name="tableView">
+    <widget class="QTableView" name="tabrecherche">
      <property name="geometry">
       <rect>
-       <x>670</x>
-       <y>170</y>
+       <x>760</x>
+       <y>180</y>
        <width>331</width>
-       <height>241</height>
+       <height>381</height>
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="recherche">
      <property name="geometry">
       <rect>
-       <x>890</x>
-       <y>150</y>
+       <x>980</x>
+       <y>160</y>
        <width>113</width>
        <height>22</height>
       </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="score">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>200</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>score</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="mail">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>240</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>mail</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="le_score">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>200</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="le_mail">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>240</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>690</x>
+       <y>20</y>
+       <width>151</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>tri des competitions</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>230</y>
+       <width>151</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ajouter un timeur</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>910</x>
+       <y>120</y>
+       <width>161</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>chercher l'equipe gagnate</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_8">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>290</y>
+       <width>161</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>envoyer un mail </string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_10">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>320</y>
+       <width>161</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>statistique</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="le_temps">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>280</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="temps">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>280</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>temps</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="rechav">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>330</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="rechavv">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>310</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>recherche avancee</string>
      </property>
     </widget>
    </widget>

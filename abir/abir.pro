@@ -1,5 +1,5 @@
-QT       += core gui
-QT                +=sql
+QT       += core gui sql serialport printsupport network charts multimedia
+QT       += core gui charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -21,19 +21,25 @@ SOURCES += \
     competition.cpp \
     connection.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    stat.cpp
 
 HEADERS += \
     Competitions.h \
     competition.h \
     connection.h \
-    mainwindow.h
+    mainwindow.h \
+    stat.h
 
 FORMS += \
     competition.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    stat.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    rec.qrc

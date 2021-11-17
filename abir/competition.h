@@ -2,6 +2,8 @@
 #define COMPETITION_H
 #include <Competitions.h>
 #include <QDialog>
+#include <QSqlTableModel>
+#include <QSystemTrayIcon>
 
 namespace Ui { //permet de regrouper nos venetres generé dans un espace de nom
 class competition;
@@ -33,11 +35,21 @@ private slots:
 
     void on_trier_equipe_clicked();
 
-    void on_lineEdit_textChanged(const QString &arg1);
+
+    //void on_lineEdit_2_cursorPositionChanged(int arg1, int arg2);
+
+
+
+    void on_recherche_textEdited(const QString &arg1);
+
+    void on_rechav_textChanged(const QString &arg1);
+
+    void on_pushButton_10_clicked();
 
 private:
     Ui::competition *ui;
-    Competitions c;
+    Competitions tmpcopitition;
+        QSystemTrayIcon *mSystemTrayIcon;
 };
 
 #endif // COMPETITION_H

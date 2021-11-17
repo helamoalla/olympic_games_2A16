@@ -8,29 +8,34 @@ class Competitions
 public:
 
     Competitions();
-    Competitions(int,QString,QString);
+    Competitions(int,QString,QString,QString,QString,int,int);
 
     int getnumero();
     QString getequipe1();
     QString getequipe2();
-
-
+    QString getreference();
+    int getscore();
+    QString getmail();
+    int gettemps();
     void setnumero(int);
     void setequipe1(QString);
     void setequipe2(QString);
-
-
+    void setreference(QString);
+    void setscore(int);
+    void setmail(QString);
+    void settemps(int);
        bool ajouter();
        QSqlQueryModel* afficher();
        bool supprimer(int);
-       bool modifier(int,QString,QString);
        QSqlQueryModel * trierTemps();
        QSqlQueryModel * trier_score();
        QSqlQueryModel * trier_equipe();
+       QSqlQueryModel * rechercheavancee(const QString &id);
+
        void recherche(QTableView * table,int);
 private:
-    int numero;
-    QString equipe1, equipe2;
+    int numero,temps,score;
+    QString equipe1, equipe2,reference,mail;
 
 
 };
