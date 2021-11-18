@@ -171,3 +171,30 @@ void competition::on_pushButton_10_clicked()
     w->make();
     w->show();
 }
+
+void competition::on_pushButton_8_clicked()
+{
+
+
+
+
+}
+
+void competition::on_pushButton_4_clicked()
+{
+    qDebug() <<  "Loaded SSL Library version: " << QSslSocket::sslLibraryVersionString();
+
+
+    QString from = "abir.khlifi@esprit.tn";
+    QString to = ui->lineEdit_to_email->text();
+    QString subject = ui->lineEdit_subject_email->text();
+    QString password ="201JFT3490";
+    QString email_text = ui->textEdit_email->toPlainText();
+
+    Smtp* smtp = new Smtp(from, password);
+    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+
+        smtp->sendMail(from, to, subject, email_text);
+
+}

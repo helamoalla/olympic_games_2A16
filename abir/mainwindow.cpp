@@ -4,7 +4,7 @@
 #include "Competitions.h"
 #include <QMessageBox>
 #include <QIntValidator>
-
+#include "smtp.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)

@@ -4,7 +4,7 @@
 #include <QDialog>
 #include <QSqlTableModel>
 #include <QSystemTrayIcon>
-
+#include "smtp.h"
 namespace Ui { //permet de regrouper nos venetres generé dans un espace de nom
 class competition;
 }
@@ -45,6 +45,10 @@ private slots:
     void on_rechav_textChanged(const QString &arg1);
 
     void on_pushButton_10_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_4_clicked();
 
 private:
     Ui::competition *ui;

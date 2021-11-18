@@ -22,6 +22,7 @@ SOURCES += \
     connection.cpp \
     main.cpp \
     mainwindow.cpp \
+    smtp.cpp \
     stat.cpp
 
 HEADERS += \
@@ -29,6 +30,7 @@ HEADERS += \
     competition.h \
     connection.h \
     mainwindow.h \
+    smtp.h \
     stat.h
 
 FORMS += \

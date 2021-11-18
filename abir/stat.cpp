@@ -39,7 +39,7 @@ void Stat::make()
 
 
         QString equipe1="CA";
-           QString equipe2="EST";
+           QString equipe2="EST";// id=0;
 
 
         q.prepare("SELECT COUNT(score) FROM Competitions where equipe1='"+equipe1+"' ");
@@ -59,7 +59,7 @@ void Stat::make()
         e=((double)e/(double)total)*100;
         c=100-e;
 
-        equipe1= QString::number(e);
+        equipe1= QString::number(e); //selon ton id
         equipe2=QString::number(c);
         QPieSeries *series;
          series= new  QPieSeries();
