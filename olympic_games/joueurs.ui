@@ -363,7 +363,7 @@ selection-background-color: rgb(255, 255, 255);</string>
       <string>exporter PDF</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_8">
+    <widget class="QPushButton" name="calcul_score">
      <property name="geometry">
       <rect>
        <x>610</x>
@@ -425,7 +425,7 @@ selection-background-color: rgb(255, 255, 255);</string>
       <string>trier annees naissance</string>
      </property>
     </widget>
-    <widget class="QRadioButton" name="radioButton_3">
+    <widget class="QRadioButton" name="trier_score">
      <property name="geometry">
       <rect>
        <x>800</x>
@@ -451,6 +451,114 @@ selection-background-color: rgb(255, 255, 255);</string>
       <string/>
      </property>
     </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>310</y>
+       <width>121</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>290</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>equipe</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>330</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>score</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="le_equipe">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>290</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="le_score">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>330</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="le_eq">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>470</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>470</y>
+       <width>56</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>equipe</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_score">
+     <property name="geometry">
+      <rect>
+       <x>740</x>
+       <y>470</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>score total: </string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_pdf">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>380</y>
+       <width>151</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
     <zorder>label_8</zorder>
     <zorder>label</zorder>
     <zorder>label_2</zorder>
@@ -470,13 +578,22 @@ selection-background-color: rgb(255, 255, 255);</string>
     <zorder>le_type_sport</zorder>
     <zorder>tab_joueur</zorder>
     <zorder>export_pdf</zorder>
-    <zorder>pushButton_8</zorder>
+    <zorder>calcul_score</zorder>
     <zorder>comboBox_2</zorder>
     <zorder>pb_supprimer</zorder>
     <zorder>trier_prenom</zorder>
     <zorder>trier_annees</zorder>
-    <zorder>radioButton_3</zorder>
+    <zorder>trier_score</zorder>
     <zorder>lineEdit_3</zorder>
+    <zorder>label_9</zorder>
+    <zorder>label_11</zorder>
+    <zorder>label_12</zorder>
+    <zorder>le_equipe</zorder>
+    <zorder>le_score</zorder>
+    <zorder>le_eq</zorder>
+    <zorder>label_13</zorder>
+    <zorder>label_score</zorder>
+    <zorder>label_pdf</zorder>
    </widget>
   </widget>
  </widget>

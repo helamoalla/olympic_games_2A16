@@ -10,30 +10,36 @@ class Joueurss
 {
 public:
     Joueurss();
-    Joueurss(int,int,QString,QString,QString,QString);
+    Joueurss(int,int,int,QString,QString,QString,QString,QString);
     int getid();
     int getannees_naiss();
+    int getscore();
     QString getnom();
     QString getprenom();
     QString getnationalite();
     QString gettype_sport();
+    QString getequipe();
     void setid(int);
     void setannees_naiss(int);
+    void setscore(int);
     void setnom(QString);
     void setprenom(QString);
     void setnationalite(QString);
     void settype_sport(QString);
+    void setequipe(QString);
     bool ajouter();
     bool supprimer(int);
     QSqlQueryModel *afficher();
-    bool modifier(int,int,QString,QString,QString,QString);
+    bool modifier(int,int,int,QString,QString,QString,QString,QString);
     QSqlQueryModel * trierprenom();
     QSqlQueryModel * trierannees();
+    QSqlQueryModel * trierscore();
     void recherche(QTableView * table, QString);
-    void telechargerPDF();
+    void telechargerPDF(QString);
+    int calculscore(QString);
 private:
-    int id,annees_naissance;
-    QString nom,prenom,nationalite,type_sport;
+    int id,annees_naissance,score;
+    QString nom,prenom,nationalite,type_sport,equipe;
 };
 
 

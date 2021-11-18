@@ -2,6 +2,7 @@
 #define JOUEURS_H
 #include"joueurss.h"
 #include <QDialog>
+#include <QFileDialog>
 
 namespace Ui {
 class joueurs;
@@ -40,6 +41,12 @@ private slots:
     void on_lineEdit_3_textChanged(const QString &arg1);
 
     void on_export_pdf_clicked();
+
+    void on_tab_joueur_activated(const QModelIndex &index);
+
+    void on_calcul_score_clicked();
+
+    void on_trier_score_clicked();
 
 private:
     Ui::joueurs *ui;
