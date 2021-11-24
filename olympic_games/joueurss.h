@@ -35,7 +35,7 @@ public:
     QSqlQueryModel * trierannees();
     QSqlQueryModel * trierscore();
     void recherche(QTableView * table, QString);
-    void telechargerPDF(QString);
+    void telechargerPDF();
     int calculscore(QString);
 private:
     int id,annees_naissance,score;

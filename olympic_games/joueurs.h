@@ -48,6 +48,10 @@ private slots:
 
     void on_trier_score_clicked();
 
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
 private:
     Ui::joueurs *ui;
     Joueurss j;

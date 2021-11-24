@@ -4,7 +4,8 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QSqlQuery>
-
+#include <QPrinter>
+#include <QPrintDialog>
 joueurs::joueurs(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::joueurs)
@@ -101,14 +102,18 @@ void joueurs::on_pb_afficher_clicked()
 
 void joueurs::on_pb_importer_clicked()
 {
-QString filename= QFileDialog::getOpenFileName(this ,tr("choisir"),"",tr("photos(*.png)"));
-if(QString::compare(filename, QString())!=0)
+
+    QString filename= QFileDialog::getOpenFileName(this ,tr("choisir"),"",tr("photos(*.png)"));
+    if(QString::compare(filename, QString())!=0)
 {
     QImage photo;
     bool valid=photo.load(filename);
     if(valid)
-    {   photo=photo.scaledToWidth(ui->label_9->width(), Qt::SmoothTransformation);
+    {
+        photo=photo.scaledToWidth(ui->label_9->width(), Qt::SmoothTransformation);
         ui->label_9->setPixmap(QPixmap::fromImage(photo));
+
+
     }
     else
     {
@@ -179,28 +184,29 @@ void joueurs::on_export_pdf_clicked()
 {
     QSqlQuery query;
     QString val = ui->label_pdf->text();
-    query.prepare("select * from joueurs where id='"+val+"'");
+    //query.prepare("select * from joueurs where id='"+val+"'");
+query.prepare("select * from joueurs where id");
+ j.telechargerPDF();
+//    if(query.exec()){
 
-    if(query.exec()){
+//        while(query.next())
+//        {
 
-        while(query.next())
-        {
-
-            j.telechargerPDF(val);
-       ui->le_id->setText(query.value(0).toString());
-       ui->le_annees_naiss->setText(query.value(1).toString());
-        ui->le_nom->setText(query.value(2).toString());
-        ui->le_prenom->setText(query.value(3).toString());
-        ui->le_nationalite->setText(query.value(4).toString());
-         ui->le_type_sport->setText(query.value(5).toString());
+//            j.telechargerPDF(val);
+//       ui->le_id->setText(query.value(0).toString());
+//       ui->le_annees_naiss->setText(query.value(1).toString());
+//        ui->le_nom->setText(query.value(2).toString());
+//        ui->le_prenom->setText(query.value(3).toString());
+//        ui->le_nationalite->setText(query.value(4).toString());
+//         ui->le_type_sport->setText(query.value(5).toString());
 
 
-   }
-    }
-    else
-        QMessageBox::critical(nullptr, QObject::tr(" echoué"),
-                    QObject::tr("Erreur !.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
+//   }
+//    }
+//    else
+//        QMessageBox::critical(nullptr, QObject::tr(" echoué"),
+//                    QObject::tr("Erreur !.\n"
+//                                "Click Cancel to exit."), QMessageBox::Cancel);
 
      QMessageBox::information(nullptr,QObject::tr("OK"),
                 QObject::tr("Téléchargement terminé"), QMessageBox::Cancel);
@@ -225,3 +231,48 @@ void joueurs::on_calcul_score_clicked()
 }
 
 
+
+void joueurs::on_pushButton_2_clicked() ///imprimer
+{
+    QPrinter printer;
+
+        printer.setPrinterName("desiered printer export_pdf.pdf");
+
+      QPrintDialog dialog(&printer,this);
+
+        if(dialog.exec()== QDialog::Rejected)
+
+            return;
+}
+
+void joueurs::on_pushButton_3_clicked()
+{
+    QString filename= QFileDialog::getOpenFileName(this ,tr("choisir"),"",tr("photos(*.png)"));
+    qDebug() << filename;
+
+    if(QString::compare(filename, QString())!=0)
+{
+    QImage photo;
+
+    bool valid=photo.load(filename);
+    if(valid)
+    {
+        photo=photo.scaledToWidth(ui->label_9->width(), Qt::SmoothTransformation);
+        ui->label_9->setPixmap(QPixmap::fromImage(photo));
+
+        QString id = ui->comboBox_2->currentText();
+
+        QSqlQueryModel* model = new QSqlQueryModel();
+        QString query_string = "update JOUEURS set image='file_path' where id=:id";
+        query_string.replace("file_path", filename);
+        query_string.replace(":id", id);
+
+        model->setQuery(query_string);
+        model->query().exec();
+    }
+    else
+    {
+    //error
+    }
+}
+}

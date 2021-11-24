@@ -156,7 +156,7 @@ QSqlQueryModel * Joueurss::trierscore()
 void Joueurss::recherche(QTableView * table, QString rech)
 {
     QSqlQueryModel *model= new QSqlQueryModel();
-        //QString annees_string=QString::number(annees);
+
         QSqlQuery *query=new QSqlQuery;
         query->prepare("select * from joueurs where nationalite like '%"+rech+"%' or TYPE_SPORT like '%"+rech+"%' or annees_naissance like '%"+rech+"%' ;");
         query->exec();
@@ -164,7 +164,7 @@ void Joueurss::recherche(QTableView * table, QString rech)
         table->setModel(model);
         table->show();
 }
-void  Joueurss::telechargerPDF(QString val){
+void  Joueurss::telechargerPDF(){
 
 
                      QPdfWriter pdf("C:\\Users\\helam\\OneDrive\\Bureau\\export_pdf\\export_pdf.pdf");
@@ -172,7 +172,7 @@ void  Joueurss::telechargerPDF(QString val){
                     int i = 4000;
                          painter.setPen(Qt::blue);
                          painter.setFont(QFont("Arial", 30));
-                         painter.drawText(1100,1200,"JOUEUR");
+                         painter.drawText(1100,1200,"LISTES DES JOUEUR");
                          painter.setPen(Qt::black);
                          painter.setFont(QFont("Arial",14));
                          painter.drawRect(100,100,7300,2600);
@@ -188,8 +188,8 @@ void  Joueurss::telechargerPDF(QString val){
                          painter.drawText(7500,3300,"SCORE");
 
                          QSqlQuery query;
-                         query.prepare("select * from joueurs where id='"+val+"'");
-                         //query.prepare("select * from joueurs");
+                         //query.prepare("select * from joueurs where id='"+val+"'");
+                         query.prepare("select * from joueurs");
                          query.exec();
                          while (query.next())
                          {

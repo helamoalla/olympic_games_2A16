@@ -559,6 +559,32 @@ selection-background-color: rgb(255, 255, 255);</string>
       <string/>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>830</x>
+       <y>420</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>imprimer</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>420</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ajouter image</string>
+     </property>
+    </widget>
     <zorder>label_8</zorder>
     <zorder>label</zorder>
     <zorder>label_2</zorder>
@@ -594,6 +620,8 @@ selection-background-color: rgb(255, 255, 255);</string>
     <zorder>label_13</zorder>
     <zorder>label_score</zorder>
     <zorder>label_pdf</zorder>
+    <zorder>pushButton_2</zorder>
+    <zorder>pushButton_3</zorder>
    </widget>
   </widget>
  </widget>
