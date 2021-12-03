@@ -150,7 +150,7 @@ QString Spectaclee ::gettype(){return type;}
         void  Spectaclee::telechargerEXCEL(){
 
 
-                             QPdfWriter pdf("C:/Users/21694/Desktop//export_EXCEL.xlsx");
+                             QPdfWriter pdf("C:\\Users\\helam\\OneDrive\\Bureau\\export_pdf\\export_EXCEL.xlsx");
                              QPainter painter(&pdf);
                             int i = 4000;
                                  painter.setPen(Qt::blue);

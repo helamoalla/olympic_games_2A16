@@ -1,5 +1,3 @@
-#ifndef AUTHENTIFICATION_H
-#define AUTHENTIFICATION_H
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
@@ -25,7 +23,19 @@
 //bool modifier(QString, QString);
 //void HISTORIQUE_PDF();
 //QSqlQueryModel *mot_de_passe(const QString &aux1);
+#ifndef AUTHENTIFICATION_H
+#define AUTHENTIFICATION_H
+#include <QMainWindow>
+#include <QMessageBox>
+//#include <employe.h>
+#include <QFileInfo>
+#include <mainwindow.h>
+//namespace Ui { class Authentification; }
+class Authentification
 
+ {
+
+};
 
 #endif // AUTHENTIFICATION_H
 

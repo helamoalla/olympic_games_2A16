@@ -49,8 +49,8 @@ ticket::ticket()
         QSqlQuery query;
         QString reference_string = QString::number(reference);
         QString num_string = QString::number(num);
-        query.prepare("INSERT INTO ticket (reference, num, datee, nomt, prenomt) "
-                      "VALUES (:reference, :num, :datee , :nomt, :prenomt)");
+        query.prepare("INSERT INTO TICKET (REFERENCE, NUM, DATEE, NOMT, PRENOMT) "
+                      "VALUES (:reference, :num, :datee, :nomt, :prenomt)");
         query.bindValue(0, reference_string);
         query.bindValue(1, num_string);
         query.bindValue(2,datee);
@@ -153,7 +153,8 @@ ticket::ticket()
     void  ticket::telechargerPDF(){
 
 
-                         QPdfWriter pdf("C:\\Users\\HP\\Desktop\\azizcpp\\export.pdf");
+                        // QPdfWriter pdf("C:\\Users\\HP\\Desktop\\azizcpp\\export.pdf");
+                         QPdfWriter pdf("C:\\Users\\helam\\OneDrive\\Bureau\\export_pdf\\export_pdf.pdf");
                          QPainter painter(&pdf);
                         int i = 4000;
                              painter.setPen(Qt::blue);

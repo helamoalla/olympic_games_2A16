@@ -62,17 +62,7 @@ private slots:
 
     void on_comboBox_modifier_ref_activated(const QString &arg1);
 
-    void on_export_pdf_2_clicked();
-
     void on_lineEdit_7_clicked();
-
-    void on_pb_afficher_2_clicked();
-
-    void on_pb_ajouter_2_clicked();
-
-    void on_pb_modifier_2_clicked();
-
-    void on_pb_supprimer_2_clicked();
 
     void on_pb_upload_clicked();
 
@@ -150,7 +140,27 @@ private slots:
 
     void on_lineEdit_nom_cursorPositionChanged(int arg1, int arg2);
 
-    void on_export_pdf_4_clicked();
+    void on_ajouterT_clicked();
+
+    void on_afficherT_clicked();
+
+    void on_modifierT_clicked();
+
+    void on_supprimerT_clicked();
+
+    void on_exporter_pdfT_clicked();
+
+    void on_export_pdfE_clicked();
+
+    void on_deconnexion_clicked();
+
+    void on_deconnexion_1_clicked();
+
+    void on_deconnexion_3_clicked();
+
+    void on_deconnexion_4_clicked();
+
+    void on_deconnexion_5_clicked();
 
 private:
     Ui::MainWindow *ui;

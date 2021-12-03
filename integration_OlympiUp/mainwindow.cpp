@@ -20,14 +20,8 @@
 #include "competitions.h"
 #include "QSqlTableModel"
 #include <QSqlQueryModel>
-#include "smtp.h"
+#include "QStackedWidget"
 #include "stat.h"
-#include <QtCharts/QLineSeries>
-#include <QtCharts/QCategoryAxis>
-#include <QtCharts/QPieSeries>
-#include <QtCharts/QPieSlice>
-#include <QWidget>
-#include <QtCharts/QHorizontalStackedBarSeries>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -56,6 +50,9 @@ MainWindow::MainWindow(QWidget *parent)
 
                      ui->comboBox->addItem("FR");
                          ui->comboBox->addItem("ENG");
+                         ui->stackedWidget->setCurrentIndex(0);
+
+
 }
 QString language = "FR";
 MainWindow::~MainWindow()
@@ -65,8 +62,37 @@ MainWindow::~MainWindow()
 
 
 void MainWindow::on_connecter_clicked()
-{
-
+{ QStackedWidget stackedWidget;
+    connect(ui->stackedWidget, SIGNAL(clicked()), this, SLOT(viewData));
+    QString username=ui->lineEdit_username->text();
+            QString password = ui->lineEdit_password->text();
+            if(username == "hela" && password == "hela")
+            { QMessageBox::information(this, "Login", "Username and password is correct");
+           //connect(ui->MainWindow->page_3, SIGNAL(on_connecter_clicked()), this, SLOT(viewData));
+            ui->stackedWidget->setCurrentIndex(1);
+            }
+                //hide(); mainwindow = new MainWindow(this); mainwindow->show(); }
+                else if(username == "haj" && password == "haj")
+            { QMessageBox::information(this, "Login", "Username and password is correct");
+               ui->stackedWidget->setCurrentIndex(2);
+            }
+                    //hide(); mainwindow = new MainWindow(this); mainwindow->show(); }
+                    else if(username == "aziz" && password == "aziz")
+                    { QMessageBox::information(this, "Login", "Username and password is correct");
+               ui->stackedWidget->setCurrentIndex(3);
+            }
+                        //hide(); mainwindow = new MainWindow(this); mainwindow->show(); }
+                        else if(username == "abir" && password == "abir")
+                        { QMessageBox::information(this, "Login", "Username and password is correct");
+               ui->stackedWidget->setCurrentIndex(4);
+            }
+                            //hide(); mainwindow = new MainWindow(this); mainwindow->show(); }
+                            else if(username == "slim" && password == "slim")
+                            { QMessageBox::information(this, "Login", "Username and password is correct");
+               ui->stackedWidget->setCurrentIndex(5);
+            }
+                                //hide(); mainwindow = new MainWindow(this); mainwindow->show(); }
+                                        else { QMessageBox::warning(this,"Login", "Username and password is not correct"); }
 }
 /////hela///////////
 void MainWindow::on_pb_ajouter_clicked()
@@ -379,13 +405,6 @@ void MainWindow::on_comboBox_modifier_ref_activated(const QString &arg1)
 //                                               "Click Cancel to exit."), QMessageBox::Cancel);
 }
 
-void MainWindow::on_export_pdf_2_clicked()
-{
-    T.telechargerPDF();
-
-        QMessageBox::information(nullptr,QObject::tr("OK"),
-                   QObject::tr("Téléchargement terminé"), QMessageBox::Cancel);
-}
 
 void MainWindow::on_lineEdit_7_clicked()
 {
@@ -397,96 +416,6 @@ void MainWindow::on_lineEdit_7_clicked()
               {
                   ui->tab_ticket->setModel(T.afficher());
               }
-}
-
-void MainWindow::on_pb_afficher_2_clicked()
-{
- ui->tab_ticket->setModel(T.afficher());
-}
-
-void MainWindow::on_pb_ajouter_2_clicked()
-{
-    int reference = ui->le_ref->text().toInt();
-        int num = ui->le_num->text().toInt();
-        QString datee = ui->le_date->text();
-        QString nomt = ui->le_nom_2->text();
-        QString prenomt = ui->le_prenom_2->text();
-
-
-        ticket T (reference,num,datee, nomt, prenomt);
-
-        bool test = T.ajouter();
-
-        if( test )
-        {
-            QMessageBox::information(nullptr, QObject::tr("OK"),
-                                     QObject::tr("Ajout effectué.\n"
-                                                 "Click cancel to exit."),
-                                     QMessageBox::Cancel);
-            ui->tab_ticket->setModel(T.afficher());
-        }
-        else
-        {
-            QMessageBox::information(nullptr, QObject::tr("Not OK"),
-                                     QObject::tr("Ajout non effectué.\n"
-                                                 "Click cancel to exit."),
-                                     QMessageBox::Cancel);
-        }
-
-}
-
-void MainWindow::on_pb_modifier_2_clicked()
-{
-    int reference =ui->le_ref->text().toInt();
-               int num=ui->le_num->text().toInt();
-               QString datee=ui->le_date->text();
-               QString nomt=ui->le_nom_2->text();
-
-               QString prenomt=ui->le_prenom_2->text();
-
-
-
-                ticket T(reference,num,datee, nomt, prenomt);
-                bool test=T.modifier(reference,num,datee, nomt, prenomt);
-                if(test)
-              {ui->tab_ticket->setModel(T.afficher());
-                    /*h.savemodifier();*/
-                    ui->comboBox_modifier_ref->setModel(T.afficher());
-              QMessageBox::information(nullptr, QObject::tr("Modifier avec succées "),
-                                QObject::tr("invite modifiée.\n"
-                                            "Click ok to exit."), QMessageBox::Ok);
-
-              }
-                else
-                    QMessageBox::critical(nullptr, QObject::tr("Modifier a echoué"),
-                                QObject::tr("echec d'ajout !.\n"
-                                            "Click Cancel to exit."), QMessageBox::Cancel);
-
-
-}
-
-void MainWindow::on_pb_supprimer_2_clicked()
-{
-    int reference = ui->le_ref_supp->text().toInt();
-
-
-        bool test = T.supprimer(reference);
-
-        if( test )
-        {
-            QMessageBox::information(nullptr, QObject::tr("OK"),
-                                     QObject::tr("Suppression avec succes.\n"
-                                                 "Click cancel to exit."),
-                                     QMessageBox::Cancel);
-            ui->tab_ticket->setModel(T.afficher());
-        }
-        else
-        {
-            QMessageBox::information(nullptr, QObject::tr("Not OK"),
-                                     QObject::tr("Echec de suppression.\n"
-                                                 "Click cancel to exit."),
-                                     QMessageBox::Cancel);
-        }
 }
 
 void MainWindow::on_pb_upload_clicked()
@@ -538,8 +467,8 @@ void MainWindow::on_comboBox_modifier_ref_currentIndexChanged(const QString &arg
                       ui->le_ref->setText(query.value(0).toString());
                       ui->le_num->setText(query.value(1).toString());
                        ui->le_date->setText(query.value(2).toString());
-                       ui->le_nom_2->setText(query.value(3).toString());
-                       ui->le_prenom_2->setText(query.value(4).toString());
+                       ui->le_nomT->setText(query.value(3).toString());
+                       ui->le_prenomT->setText(query.value(4).toString());
 
                   }
                    }
@@ -711,12 +640,12 @@ void MainWindow::on_lineEdit_6_textChanged(const QString &arg1)
     Spectaclee s;
 
 
-           QString nom = ui->lineEdit->text();
-           QString nom1 = ui->lineEdit->text();
-           int idE = ui->lineEdit->text().toInt();
+           QString nom = ui->lineEdit_6->text();
+           QString nom1 = ui->lineEdit_6->text();
+           int idE = ui->lineEdit_6->text().toInt();
 
            s.recherche(ui->tab_spec,nom,idE,nom1);
-           if (ui->lineEdit->text().isEmpty())
+           if (ui->lineEdit_6->text().isEmpty())
            {
                ui->tab_spec->setModel(s.afficher());
            }
@@ -825,10 +754,10 @@ void MainWindow::on_pushButton_12_clicked()//timer
 }
 
 void MainWindow::on_pushButton_14_clicked()
-{
+{/*
     Stat *w = new Stat();
        w->make();
-       w->show();
+       w->show();*/
 }
 
 void MainWindow::on_rechav_textChanged(const QString &arg1)
@@ -864,11 +793,11 @@ void MainWindow::on_pushButton_16_clicked() //envoi mail
        QString password ="201JFT3490";
        QString email_text = ui->textEdit_email->toPlainText();
 
-       Smtp* smtp = new Smtp(from, password);
-       connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+//       Smtp* smtp = new Smtp(from, password);
+//       connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 
 
-           smtp->sendMail(from, to, subject, email_text);
+//           smtp->sendMail(from, to, subject, email_text);
 }
 
 void MainWindow::on_comboBox_3_activated(const QString &arg1)
@@ -987,7 +916,7 @@ void MainWindow::on_ajouterE_clicked()
 void MainWindow::on_supprimerE_clicked()
 {
     employer E1;
-           int id_E = ui->le_idE->text().toInt();
+           int id_E = ui->enterID->text().toInt();
                bool test=E1.supprimer(id_E);
        QMessageBox msgBox ;
                if(test){
@@ -1005,42 +934,42 @@ void MainWindow::on_comboBox_4_activated(const QString &arg1)
 {
     language = ui->comboBox->currentText();
 
-//          if(language == "FR"){
-//              ui->label_2->setText("Nom");
-//              ui->label_3->setText("Prenom");
-//              ui->label_4->setText("Emplacement");
-//              ui->pushButton_7->setText("supprimer");
-//              ui->pushButton_3->setText("supprimer");
-//              ui->pushButton_4->setText("Afficher");
-//              ui->pushButton_2->setText("Modifier");
-//              ui->pushButton->setText("Ajouter");
-//              ui->pushButton_5->setText("trier par nom");
-//              ui->pushButton_6->setText("trier par prenom");
-//              ui->pushButton_9->setText("trier par id");
+          if(language == "FR"){
+              ui->label_52->setText("Nom");
+              ui->label_53->setText("Prenom");
+              ui->label_54->setText("Emplacement");
+              ui->pushButton_25->setText("supprimer");
+              ui->supprimerE->setText("supprimer");
+              ui->afficherE->setText("Afficher");
+              ui->modifierE->setText("Modifier");
+              ui->ajouterE->setText("Ajouter");
+              ui->pushButton_22->setText("trier par nom");
+              ui->pushButton_23->setText("trier par prenom");
+              ui->pushButton_24->setText("trier par id");
 
 
 
 
 
-//          }
-//          else {
-//              ui->label_2->setText("Name");
-//              ui->label_3->setText("First-Name");
-//              ui->label_4->setText("Site");
-//              ui->pushButton_7->setText("Delete");
-//              ui->pushButton_3->setText("Delete");
-//              ui->pushButton_4->setText("Display");
-//              ui->pushButton_2->setText("Edit");
-//              ui->pushButton->setText("Add");
-//              ui->pushButton_5->setText("Sort by name");
-//              ui->pushButton_6->setText("Sort by first name");
-//              ui->pushButton_9->setText("Sort by id");
+          }
+          else {
+              ui->label_52->setText("Name");
+              ui->label_53->setText("First-Name");
+              ui->label_54->setText("Site");
+              ui->pushButton_25->setText("Delete");
+              ui->supprimerE->setText("Delete");
+              ui->afficherE->setText("Display");
+              ui->modifierE->setText("Edit");
+              ui->ajouterE->setText("Add");
+              ui->pushButton_22->setText("Sort by name");
+              ui->pushButton_23->setText("Sort by first name");
+              ui->pushButton_24->setText("Sort by id");
 
 
 
 
 
-        //  }
+          }
 }
 
 void MainWindow::on_lineEdit_nom_cursorPositionChanged(int arg1, int arg2)
@@ -1057,11 +986,142 @@ void MainWindow::on_lineEdit_nom_cursorPositionChanged(int arg1, int arg2)
               ui->tableView->setModel(e.afficher());
            }
 }
-
-void MainWindow::on_export_pdf_4_clicked()
+void MainWindow::on_export_pdfE_clicked()
 {
     e.telechargerPDF();
 
                  QMessageBox::information(nullptr,QObject::tr("OK"),
                             QObject::tr("Téléchargement terminé"), QMessageBox::Cancel);
+}
+
+/////aziz/////
+void MainWindow::on_ajouterT_clicked()
+{
+    int reference = ui->le_ref->text().toInt();
+        int num = ui->le_num->text().toInt();
+        QString datee = ui->le_date->text();
+        QString nomt = ui->le_nomT->text();
+        QString prenomt = ui->le_prenomT->text();
+
+
+        ticket T (reference,num,datee, nomt, prenomt);
+
+        bool test = T.ajouter();
+
+        if( test )
+        {
+            QMessageBox::information(nullptr, QObject::tr("OK"),
+                                     QObject::tr("Ajout effectué.\n"
+                                                 "Click cancel to exit."),
+                                     QMessageBox::Cancel);
+            ui->tab_ticket->setModel(T.afficher());
+        }
+        else
+        {
+            QMessageBox::information(nullptr, QObject::tr("Not OK"),
+                                     QObject::tr("Ajout non effectué.\n"
+                                                 "Click cancel to exit."),
+                                     QMessageBox::Cancel);
+        }
+
+}
+
+void MainWindow::on_afficherT_clicked()
+{
+ ui->tab_ticket->setModel(T.afficher());
+}
+
+void MainWindow::on_modifierT_clicked()
+{
+    int reference =ui->le_ref->text().toInt();
+               int num=ui->le_num->text().toInt();
+               QString datee=ui->le_date->text();
+               QString nomt=ui->le_nomT->text();
+
+               QString prenomt=ui->le_prenomT->text();
+
+
+
+                ticket T(reference,num,datee, nomt, prenomt);
+                bool test=T.modifier(reference,num,datee, nomt, prenomt);
+                if(test)
+              {ui->tab_ticket->setModel(T.afficher());
+                    /*h.savemodifier();*/
+                    ui->comboBox_modifier_ref->setModel(T.afficher());
+              QMessageBox::information(nullptr, QObject::tr("Modifier avec succées "),
+                                QObject::tr("invite modifiée.\n"
+                                            "Click ok to exit."), QMessageBox::Ok);
+
+              }
+                else
+                    QMessageBox::critical(nullptr, QObject::tr("Modifier a echoué"),
+                                QObject::tr("echec d'ajout !.\n"
+                                            "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void MainWindow::on_supprimerT_clicked()
+{
+    int reference = ui->le_ref_supp->text().toInt();
+
+
+        bool test = T.supprimer(reference);
+
+        if( test )
+        {
+            QMessageBox::information(nullptr, QObject::tr("OK"),
+                                     QObject::tr("Suppression avec succes.\n"
+                                                 "Click cancel to exit."),
+                                     QMessageBox::Cancel);
+            ui->tab_ticket->setModel(T.afficher());
+        }
+        else
+        {
+            QMessageBox::information(nullptr, QObject::tr("Not OK"),
+                                     QObject::tr("Echec de suppression.\n"
+                                                 "Click cancel to exit."),
+                                     QMessageBox::Cancel);
+        }
+}
+
+void MainWindow::on_exporter_pdfT_clicked()
+{
+    T.telechargerPDF();
+
+        QMessageBox::information(nullptr,QObject::tr("OK"),
+                   QObject::tr("Téléchargement terminé"), QMessageBox::Cancel);
+}
+
+void MainWindow::on_deconnexion_clicked()
+{
+    QStackedWidget stackedWidget;
+        connect(ui->stackedWidget, SIGNAL(clicked()), this, SLOT(viewData));
+         ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_deconnexion_1_clicked()
+{
+    QStackedWidget stackedWidget;
+        connect(ui->stackedWidget, SIGNAL(clicked()), this, SLOT(viewData));
+         ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_deconnexion_3_clicked()
+{
+    QStackedWidget stackedWidget;
+        connect(ui->stackedWidget, SIGNAL(clicked()), this, SLOT(viewData));
+         ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_deconnexion_4_clicked()
+{
+    QStackedWidget stackedWidget;
+        connect(ui->stackedWidget, SIGNAL(clicked()), this, SLOT(viewData));
+         ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_deconnexion_5_clicked()
+{
+    QStackedWidget stackedWidget;
+        connect(ui->stackedWidget, SIGNAL(clicked()), this, SLOT(viewData));
+         ui->stackedWidget->setCurrentIndex(0);
 }

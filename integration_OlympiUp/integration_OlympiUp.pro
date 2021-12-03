@@ -1,8 +1,6 @@
 QT       += core gui
 QT+=sql
 QT       += core gui printsupport
-QT       += core gui sql serialport printsupport network charts multimedia
-QT       += core gui charts
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -27,10 +25,8 @@ SOURCES += \
     joueurss.cpp \
     main.cpp \
     mainwindow.cpp \
-    smtp.cpp \
     spectaclee.cpp \
-    stat.cpp \
-    ticket.cpp
+    ticket.cpp \
 
 HEADERS += \
     authentification.h \
@@ -40,14 +36,11 @@ HEADERS += \
     historique.h \
     joueurss.h \
     mainwindow.h \
-    smtp.h \
     spectaclee.h \
-    stat.h \
-    ticket.h
+    ticket.h \
 
 FORMS += \
     mainwindow.ui \
-    stat.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

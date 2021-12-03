@@ -3,6 +3,7 @@
 #include<QPainter>
 #include<QPdfWriter>
 #include<QSystemTrayIcon>
+#include "ui_mainwindow.h"
 //authentification::authentification()
 //{
 
@@ -123,3 +124,6 @@
 
 //      return model;
 //  }
+
+
+

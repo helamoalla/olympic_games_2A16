@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "joueurss.h"
 #include "competitions.h"
+#include "employer.h"
+#include "authentification.h"
 #include "ticket.h"
 #include "spectaclee.h"
 #include "historique.h"
@@ -13,7 +15,7 @@ int main(int argc, char *argv[])
 {
 
     QApplication a(argc, argv);
-
+    a.setStyle("fusion");
     Connection c;
     bool test=c.createconnect();
     MainWindow w;

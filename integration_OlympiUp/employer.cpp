@@ -106,8 +106,8 @@ void employer :: recherche(QTableView * table ,QString nom, QString prenom,QStri
 void  employer::telechargerPDF(){
 
 
-                      QPdfWriter pdf("C:\\Users\\21699\\Desktop\\export_pdf\\export_pdf");
-
+                     // QPdfWriter pdf("C:\\Users\\21699\\Desktop\\export_pdf\\export_pdf");
+                    QPdfWriter pdf("C:\\Users\\helam\\OneDrive\\Bureau\\export_pdf\\export_pdf.pdf");
 
                       QPainter painter(&pdf);
                      int i = 4000;
