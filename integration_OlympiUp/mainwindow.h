@@ -8,10 +8,12 @@
 #include"spectaclee.h"
 #include "competitions.h"
 #include "employer.h"
+#include "arduinohhs.h"
 #include <QDialog>
 #include <QFileDialog>
 #include <QSystemTrayIcon>
 #include<QTableView>
+#include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,6 +28,8 @@ public:
     ~MainWindow();
 
 private slots:
+    void update_label();
+
     void on_connecter_clicked();
 
     void on_pb_ajouter_clicked();
@@ -162,6 +166,8 @@ private slots:
 
     void on_deconnexion_5_clicked();
 
+    void on_quitter_clicked();
+
 private:
     Ui::MainWindow *ui;
      Joueurss j;
@@ -171,5 +177,7 @@ private:
      Competitions tmpcopitition;
      employer e;
      QSystemTrayIcon *mSystemTrayIcon;
+     QByteArray data; // variable contenant les données reçues
+       arduinoHHS A;
 };
 #endif // MAINWINDOW_H

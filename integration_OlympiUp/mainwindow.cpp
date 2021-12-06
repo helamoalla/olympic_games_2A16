@@ -51,6 +51,17 @@ MainWindow::MainWindow(QWidget *parent)
                      ui->comboBox->addItem("FR");
                          ui->comboBox->addItem("ENG");
                          ui->stackedWidget->setCurrentIndex(0);
+                       ///arduino
+                         int ret=A.connect_arduino(); // lancer la connexion à arduino
+                         switch(ret){
+                         case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+                             break;
+                         case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+                            break;
+                         case(-1):qDebug() << "arduino is not available";
+                         }
+                          QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+                          //le slot update_label suite à la reception du signal readyRead (reception des données).
 
 
 }
@@ -1124,4 +1135,24 @@ void MainWindow::on_deconnexion_5_clicked()
     QStackedWidget stackedWidget;
         connect(ui->stackedWidget, SIGNAL(clicked()), this, SLOT(viewData));
          ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_quitter_clicked()
+{
+   this->close();
+}
+
+///arduino
+void MainWindow::update_label()
+{
+    data=A.read_from_arduino();
+
+    if(data=="1")
+   if(ui->stackedWidget->currentIndex()!=0){
+        if (QMessageBox::question(this, "detection de mouvement", "ouvrez la porte ?", QMessageBox::Yes|QMessageBox::No)== QMessageBox::Yes){A.write_to_arduino("o");}
+    else {A.write_to_arduino("n");}
+   }
+
+
+
 }
