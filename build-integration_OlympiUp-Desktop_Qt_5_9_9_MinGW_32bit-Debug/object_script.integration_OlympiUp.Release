@@ -1,0 +1,14 @@
+INPUT(
+./release\arduinohhs.o
+./release\authentification.o
+./release\competitions.o
+./release\connection.o
+./release\employer.o
+./release\historique.o
+./release\joueurss.o
+./release\main.o
+./release\mainwindow.o
+./release\spectaclee.o
+./release\ticket.o
+./release\moc_mainwindow.o
+);

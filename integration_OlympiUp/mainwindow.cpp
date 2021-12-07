@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "ui_stat.h"
+//#include "ui_stat.h"
 #include "joueurss.h"
 #include <QMessageBox>
 #include <QDebug>

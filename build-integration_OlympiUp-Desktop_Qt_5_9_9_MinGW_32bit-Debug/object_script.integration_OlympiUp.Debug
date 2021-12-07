@@ -1,0 +1,14 @@
+INPUT(
+./debug\arduinohhs.o
+./debug\authentification.o
+./debug\competitions.o
+./debug\connection.o
+./debug\employer.o
+./debug\historique.o
+./debug\joueurss.o
+./debug\main.o
+./debug\mainwindow.o
+./debug\spectaclee.o
+./debug\ticket.o
+./debug\moc_mainwindow.o
+);
