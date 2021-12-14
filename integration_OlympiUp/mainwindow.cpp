@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "ui_stat.h"
+#include "ui_arduino.h"
 #include "joueurss.h"
 #include <QMessageBox>
 #include <QDebug>
@@ -23,11 +24,23 @@
 #include "QStackedWidget"
 #include "stat.h"
 #include "smtp.h"
+#include "arduino.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    int ret= a.connect_arduino();
+        switch (ret)
+        {
+         case(0):qDebug() << "arduino is available and connected to: "<<a.getarduino_port_name();
+            break;
+        case(1):qDebug() << "arduino is available but not connected to: "<<a.getarduino_port_name();
+           break;
+        case(-1):qDebug() << "arduino is not available  ";
+        }
+        QObject::connect(a.getserial(),SIGNAL(readyRead()),this,SLOT(update_label()));
+
     ui->tab_joueur->setModel(j.afficher());
     ui->comboBox_2->setModel(j.afficher());
     ui->label_pdf->hide();
@@ -837,6 +850,20 @@ void MainWindow::on_recherche_textEdited(const QString &arg1)
                    ui->tabrecherche->setModel(tmpcopitition.afficher());
                }
 }
+
+void MainWindow::update_label()
+{
+    data=a.read_from_arduino();
+    if(data=="0")
+        ui->label_4->setText(" Présence d'un objet ");
+
+    if(data=="1")
+        ui->label_4->setText("  pas d' objet ");
+
+}
+
+
+
 /////slim/////////////
 void MainWindow::on_pushButton_22_clicked()
 {
@@ -1090,4 +1117,22 @@ void MainWindow::on_exporter_pdfT_clicked()
 
         QMessageBox::information(nullptr,QObject::tr("OK"),
                    QObject::tr("Téléchargement terminé"), QMessageBox::Cancel);
+}
+
+
+void MainWindow::on_deconnexion_clicked()
+{
+    QStackedWidget stackedWidget;
+            connect(ui->stackedWidget, SIGNAL(clicked()), this, SLOT(viewData));
+             ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+  a.write_to_arduino("1");
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    a.write_to_arduino("0");
 }

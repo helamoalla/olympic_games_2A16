@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include"arduino.h"
 #include <QMainWindow>
 #include"joueurss.h"
 #include"ticket.h"
@@ -151,6 +151,12 @@ private slots:
     void on_exporter_pdfT_clicked();
 
     void on_export_pdfE_clicked();
+    void update_label();//pour afficher le msg
+    void on_deconnexion_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -161,5 +167,8 @@ private:
      Competitions tmpcopitition;
      employer e;
      QSystemTrayIcon *mSystemTrayIcon;
+     Arduino a;
+     QByteArray data;
+
 };
 #endif // MAINWINDOW_H

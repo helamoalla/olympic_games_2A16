@@ -1,15 +1,14 @@
 #ifndef STAT_H
 #define STAT_H
 
+#include <QWidget>
 #include<QtCharts>
 #include<QChartView>
 #include<QPieSeries>
 #include<QPieSlice>
 
-#include <QWidget>
-
 namespace Ui {
-class Stat;
+class stat;
 }
 
 class Stat : public QWidget
@@ -20,7 +19,6 @@ public:
     explicit Stat(QWidget *parent = nullptr);
     void make();
     ~Stat();
-
 private slots:
 
 
@@ -28,13 +26,10 @@ private slots:
     void on_equipe2_textChanged(const QString &arg1);
 
     void on_equipe1_textChanged(const QString &arg1);
-
 private:
-    Ui::Stat *ui;
-   QString equipe1;
-      QString equipe2;
+    Ui::stat *ui;
+    QString equipe1;
+       QString equipe2;
 };
 
 #endif // STAT_H
-
-

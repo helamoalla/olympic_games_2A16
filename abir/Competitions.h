@@ -3,6 +3,8 @@
 # include <QString>
 #include <QSqlQueryModel> //adapter pour enregistrer  le resultat d'une enquete select dans un tableau
 #include <QTableView>
+#include<QSystemTrayIcon>
+#include "stat.h"
 class Competitions
 {
 public:
@@ -13,14 +15,14 @@ public:
     int getnumero();
     QString getequipe1();
     QString getequipe2();
-    QString getreference();
+    QString getref();
     int getscore();
     QString getmail();
     int gettemps();
     void setnumero(int);
     void setequipe1(QString);
     void setequipe2(QString);
-    void setreference(QString);
+    void setref(QString);
     void setscore(int);
     void setmail(QString);
     void settemps(int);
@@ -35,7 +37,8 @@ public:
        void recherche(QTableView * table,int);
 private:
     int numero,temps,score;
-    QString equipe1, equipe2,reference,mail;
+    QString equipe1, equipe2,ref,mail;
+    QSystemTrayIcon *mSystemTrayIcon;
 
 
 };

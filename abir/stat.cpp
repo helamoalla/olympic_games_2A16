@@ -1,20 +1,18 @@
 #include "stat.h"
 #include "ui_stat.h"
-#include <QString>
-#include<qsqlquery.h>
-#include "Competitions.h"
+#include "QSqlQuery"
+
 Stat::Stat(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Stat)
+    ui(new Ui::stat)
 {
     ui->setupUi(this);
 }
+
 Stat::~Stat()
 {
     delete ui;
 }
-
-
 
 void Stat::on_equipe2_textChanged(const QString &arg1)
 {
@@ -59,25 +57,14 @@ void Stat::make()
         e=((double)e/(double)total)*100;
         c=100-e;
 
-        equipe1= QString::number(e);
-
-
-
-
-
-
-
-
-
-
-
+        equipe1= QString::number(e); //selon ton id
         equipe2=QString::number(c);
         QPieSeries *series;
          series= new  QPieSeries();
          series->append("equipe1"+equipe1+"%",e);
          series->append("equipe2"+equipe2+"%",c);
          QPieSlice *slice0 = series->slices().at(0);
-          slice0->setLabelVisible(); //sets the visibility of the text label
+          slice0->setLabelVisible();
 
           QPieSlice *slice1 = series->slices().at(1);
              slice1->setExploded();
@@ -94,14 +81,3 @@ void Stat::make()
               ui->verticalLayout->addWidget(chartView);
 
 }
-
-
-
-
-
-
-
-
-
-
-

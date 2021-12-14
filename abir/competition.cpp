@@ -1,5 +1,5 @@
 #include "competition.h"
-#include "ui_competition.h"
+#include "ui_mainwindow.h'
 #include"competition.h"
 #include"Competitions.h"
 #include <QMessageBox> // fournit une boîte de dialogue modale pour informer l'utilisateur ou lui poser une question et recevoir une réponse
@@ -22,7 +22,7 @@ competition::~competition()
     delete ui;
 }
 
-void competition::on_pb_ajouter_clicked()
+void competition::on_pb_ajouter_3_clicked()
 {   //int numero=ui->le_numero->text().toInt();
    // QString equipe1=ui->le_equipe1->text();
     //QString equipe2=ui->le_equipe2->text();
