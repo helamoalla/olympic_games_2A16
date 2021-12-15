@@ -1,22 +1,58 @@
 #ifndef TICKET_H
 #define TICKET_H
+#include <QString>
+#include <QSqlQueryModel>
+#include<QTableView>
+#include <QPdfWriter>
+#include <QPainter>
+#include <QString>
+//#include <QtCharts/QChartView>
+//#include <QtCharts/QBarSeries>
+//#include <QtCharts/QBarSet>
+//#include <QtCharts/QLegend>
+//#include <QtCharts/QBarCategoryAxis>
+//#include <QtCharts/QHorizontalStackedBarSeries>
+//#include <QtCharts/QLineSeries>
+//#include <QtCharts/QCategoryAxis>
+//#include <QtCharts/QPieSeries>
+//#include <QtCharts/QPieSlice>
 
-#include <QDialog>
-
-namespace Ui {
-class ticket;
-}
-
-class ticket : public QDialog
+//using namespace QtCharts;
+class ticket
 {
-    Q_OBJECT
-
 public:
-    explicit ticket(QWidget *parent = nullptr);
-    ~ticket();
+    ticket();
+    ticket(int,int, QString, QString,QString);
 
-private:
-    Ui::ticket *ui;
-};
+        int getreference();
+        int getnum();
+        QString getdatee();
+        QString getnomt();
+        QString getprenomt();
+
+
+        void setreference(int);
+        void setnum(int);
+        void setdatee(QString);
+        void setnomt(QString);
+        void setprenomt(QString);
+
+        bool ajouter();
+        QSqlQueryModel* afficher();
+        bool supprimer(int);
+        bool modifier(int,int,QString,QString,QString);
+        void recherche(QTableView * table, QString);
+        QSqlQueryModel * triernom();
+           QSqlQueryModel * trierdate();
+           QSqlQueryModel * trinum();
+           void telechargerPDF();
+         /* void printQr(const QrCode &qr);
+          void generateQr();
+          std::string toSvgString(const QrCode &qr, int border);*/
+    private:
+        int reference,num;
+        QString datee,nomt,prenomt;
+    };
+
 
 #endif // TICKET_H
